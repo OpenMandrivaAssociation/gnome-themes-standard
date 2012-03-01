@@ -12,7 +12,7 @@ Source1:	settings.ini
 Source2:	gtkrc
 
 BuildRequires:	intltool
-BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.7
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
 # if gtk-engines3 was installable this should prolly be changed
 Requires:	gtk-engines2
