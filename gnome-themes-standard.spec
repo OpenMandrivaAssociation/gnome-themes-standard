@@ -2,7 +2,7 @@
 
 Name:		gnome-themes-standard
 Version:	3.2.1
-Release:	1
+Release:	2
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
@@ -21,8 +21,8 @@ Requires:	abattis-cantarell-fonts
 Requires:	adwaita-cursor-theme = %{version}-%{release}
 Requires:	adwaita-gtk2-theme = %{version}-%{release}
 Requires:	adwaita-gtk3-theme = %{version}-%{release}
-# not gonna obsolete gnome-themes until everything is in place for gnome3
-#rename		gnome-themes
+
+%rename		gnome-themes
 
 %description
 The gnome-themes-standard package contains the standard theme for the GNOME
