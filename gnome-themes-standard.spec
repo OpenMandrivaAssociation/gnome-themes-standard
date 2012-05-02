@@ -13,6 +13,7 @@ Source2:	gtkrc
 
 BuildRequires:	gtk+2.0
 BuildRequires:	intltool
+BuildRequires:	libxml2-utils
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
 # if gtk-engines3 was installable this should prolly be changed
