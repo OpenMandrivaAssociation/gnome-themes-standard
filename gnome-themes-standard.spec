@@ -11,6 +11,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-themes-standard/%{url_ver}
 Source1:	settings.ini
 Source2:	gtkrc
 
+BuildRequires:	gtk+2.0
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
