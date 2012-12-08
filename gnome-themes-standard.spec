@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 
 Name:		gnome-themes-standard
-Version:	3.4.1
+Version:	3.6.2
 Release:	1
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
@@ -12,6 +12,7 @@ Source1:	settings.ini
 Source2:	gtkrc
 
 BuildRequires:	gtk+2.0
+BuildRequires:	gtk+2-devel
 BuildRequires:	intltool
 BuildRequires:	libxml2-utils
 BuildRequires:	pkgconfig(gtk+-3.0)
@@ -60,7 +61,8 @@ with a GNOME look and feel.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x 
+#--disable-gtk2-engine
 %make
 
 %install
@@ -79,14 +81,14 @@ touch --no-create %{_datadir}/icons/Adwaita &>/dev/null || :
 
 %postun
 if [ $1 -eq 0 ] ; then
-    for t in Adwaita HighContrast HighContrastInverse LowContrast; do
+    for t in Adwaita HighContrast; do
         touch --no-create %{_datadir}/icons/$t &>/dev/null
         gtk-update-icon-cache %{_datadir}/icons/$t &>/dev/null || :
     done
 fi
 
 %posttrans
-for t in Adwaita HighContrast HighContrastInverse LowContrast; do
+for t in Adwaita HighContrast; do
   gtk-update-icon-cache %{_datadir}/icons/$t &>/dev/null || :
 done
 
@@ -102,12 +104,8 @@ done
 %{_datadir}/gnome-background-properties/*
 
 # A11y themes
-%{_datadir}/icons/LowContrast
-%{_datadir}/themes/LowContrast
 %{_datadir}/icons/HighContrast
 %{_datadir}/themes/HighContrast
-%{_datadir}/icons/HighContrastInverse
-%{_datadir}/themes/HighContrastInverse
 
 %files -n adwaita-cursor-theme
 # Cursors
@@ -116,6 +114,7 @@ done
 %files -n adwaita-gtk2-theme
 # gtk2 Theme
 %{_datadir}/themes/Adwaita/gtk-2.0
+%{_libdir}/gtk-2.0/2.10.0/engines/libadwaita.so
 
 # Default gtk2 settings
 %{_sysconfdir}/gtk-2.0/gtkrc
@@ -127,4 +126,3 @@ done
 
 # Default gtk3 settings
 %{_sysconfdir}/gtk-3.0/settings.ini
-
