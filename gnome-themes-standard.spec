@@ -6,15 +6,15 @@ Release:	1
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
-URL:		http://git.gnome.org/browse/gnome-themes-standard
+Url:		http://git.gnome.org/browse/gnome-themes-standard
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-themes-standard/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	settings.ini
 Source2:	gtkrc
 
 BuildRequires:	gtk+2.0
-BuildRequires:	gtk+2-devel
 BuildRequires:	intltool
 BuildRequires:	libxml2-utils
+BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
 # if gtk-engines3 was installable this should prolly be changed
@@ -126,3 +126,4 @@ done
 
 # Default gtk3 settings
 %{_sysconfdir}/gtk-3.0/settings.ini
+
