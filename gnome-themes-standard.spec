@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 
 Name:		gnome-themes-standard
-Version:	3.6.2
-Release:	5
+Version:	3.13.1
+Release:	1
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
@@ -11,35 +11,32 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-themes-standard/%{url_ver}
 Source1:	settings.ini
 Source2:	gtkrc
 
-BuildRequires:	gtk+2.0
 BuildRequires:	intltool
-BuildRequires:	libxml2-utils
+BuildRequires:	pkgconfig(gtk+-3.0) >= 3.5.17
 BuildRequires:	pkgconfig(gtk+-2.0)
-BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(gdk-x11-2.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
-# if gtk-engines3 was installable this should prolly be changed
+
+# just for /usr/bin/gtk-update-icon-cache:
+BuildRequires:	gtk+2.0
+
 Requires:	gtk-engines2
 Requires:	gnome-icon-theme
 Requires:	abattis-cantarell-fonts
-Requires:	adwaita-cursor-theme = %{version}-%{release}
+Requires:	adwaita-icon-theme
+Requires:	adwaita-cursor-theme
 Requires:	adwaita-gtk2-theme = %{version}-%{release}
 Requires:	adwaita-gtk3-theme = %{version}-%{release}
 
+
+
+%rename		gnome-background-standard
 %rename		gnome-themes
 
 %description
 The gnome-themes-standard package contains the standard theme for the GNOME
 desktop, which provides default appearance for cursors, desktop background,
 window borders and GTK+ applications.
-
-%package -n adwaita-cursor-theme
-Summary:	Adwaita cursor theme
-Group:		Graphical desktop/GNOME
-BuildArch:	noarch
-
-%description -n adwaita-cursor-theme
-The adwaita-cursor-theme package contains a modern set of cursors originally
-designed for the GNOME desktop.
 
 %package -n adwaita-gtk2-theme
 Summary:	Adwaita gtk2 theme
@@ -68,13 +65,8 @@ with a GNOME look and feel.
 %install
 %makeinstall_std
 
-# we don't want these
-rm -rf %{buildroot}%{_libdir}/gtk-3.0/3.0.0/theming-engines/libadwaita.la
-
 install -Dpm644 %{SOURCE1} %{buildroot}%{_sysconfdir}/gtk-3.0/settings.ini
 install -Dpm644 %{SOURCE2} %{buildroot}%{_sysconfdir}/gtk-2.0/gtkrc
-
-%find_lang %{name}
 
 %post
 touch --no-create %{_datadir}/icons/Adwaita &>/dev/null || :
@@ -92,7 +84,7 @@ for t in Adwaita HighContrast; do
   gtk-update-icon-cache %{_datadir}/icons/$t &>/dev/null || :
 done
 
-%files -f %{name}.lang
+%files
 %doc NEWS README
 
 # Background and WM
@@ -107,17 +99,13 @@ done
 %{_datadir}/icons/HighContrast
 %{_datadir}/themes/HighContrast
 
-%files -n adwaita-cursor-theme
-# Cursors
-%{_datadir}/icons/Adwaita
-
 %files -n adwaita-gtk2-theme
 # gtk2 Theme
 %{_datadir}/themes/Adwaita/gtk-2.0
 %{_libdir}/gtk-2.0/2.10.0/engines/libadwaita.so
 
 # Default gtk2 settings
-%{_sysconfdir}/gtk-2.0/gtkrc
+%config(noreplace) %{_sysconfdir}/gtk-2.0/gtkrc
 
 %files -n adwaita-gtk3-theme
 # gtk3 Theme and engine
@@ -125,5 +113,5 @@ done
 %{_datadir}/themes/Adwaita/gtk-3.0
 
 # Default gtk3 settings
-%{_sysconfdir}/gtk-3.0/settings.ini
+%config(noreplace) %{_sysconfdir}/gtk-3.0/settings.ini
 
