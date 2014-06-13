@@ -2,7 +2,7 @@
 
 Name:		gnome-themes-standard
 Version:	3.13.1
-Release:	1
+Release:	2
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
