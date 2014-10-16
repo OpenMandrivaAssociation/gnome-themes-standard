@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 
 Name:		gnome-themes-standard
-Version:	3.13.1
-Release:	3
+Version:	3.14.0
+Release:	1
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
@@ -92,9 +92,6 @@ done
 %exclude %{_datadir}/themes/Adwaita/gtk-2.0
 %exclude %{_datadir}/themes/Adwaita/gtk-3.0
 
-# Background
-%{_datadir}/gnome-background-properties/*
-
 # A11y themes
 %{_datadir}/icons/HighContrast
 %{_datadir}/themes/HighContrast
@@ -109,7 +106,6 @@ done
 
 %files -n adwaita-gtk3-theme
 # gtk3 Theme and engine
-%{_libdir}/gtk-3.0/3.0.0/theming-engines/libadwaita.so
 %{_datadir}/themes/Adwaita/gtk-3.0
 
 # Default gtk3 settings
