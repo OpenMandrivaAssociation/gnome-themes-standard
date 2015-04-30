@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 
 Name:		gnome-themes-standard
-Version:	3.14.0
+Version:	 3.16.0
 Release:	2
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
@@ -58,7 +58,7 @@ with a GNOME look and feel.
 %setup -q
 
 %build
-%configure2_5x 
+%configure2_5x
 #--disable-gtk2-engine
 %make
 
