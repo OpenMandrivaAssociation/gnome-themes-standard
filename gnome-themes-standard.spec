@@ -85,7 +85,7 @@ for t in Adwaita HighContrast; do
 done
 
 %files
-%doc NEWS README
+%doc NEWS
 
 # Background and WM
 %{_datadir}/themes/Adwaita
