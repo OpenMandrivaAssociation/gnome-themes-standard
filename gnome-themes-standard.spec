@@ -95,6 +95,7 @@ done
 # A11y themes
 %{_datadir}/icons/HighContrast
 %{_datadir}/themes/HighContrast
+%{_datadir}/themes/Adwaita-dark/*
 
 %files -n adwaita-gtk2-theme
 # gtk2 Theme
