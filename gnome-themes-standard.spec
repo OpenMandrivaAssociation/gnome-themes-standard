@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version} | cut -d. -f1,2)
 
 Name:		gnome-themes-standard
-Version:	 3.18.0
-Release:	4
+Version:	3.27.90
+Release:	1
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
@@ -85,7 +85,7 @@ for t in Adwaita HighContrast; do
 done
 
 %files
-%doc NEWS README
+%doc NEWS
 
 # Background and WM
 %{_datadir}/themes/Adwaita
@@ -95,6 +95,7 @@ done
 # A11y themes
 %{_datadir}/icons/HighContrast
 %{_datadir}/themes/HighContrast
+%{_datadir}/themes/Adwaita-dark/*
 
 %files -n adwaita-gtk2-theme
 # gtk2 Theme

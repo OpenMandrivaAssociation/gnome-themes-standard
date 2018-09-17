@@ -2,5 +2,6 @@ removed_sources:
   gnome-themes-standard-3.14.0.tar.xz: d81cfa3b2258cfc5014a44e1c8e4e638d537bfc5
   gnome-themes-standard-3.16.0.tar.xz: 3933257f024e53762242fb8cb33793bbb6a6acc0
   gnome-themes-standard-3.6.2.tar.xz: c7f40cc078c67169caee4883c76c5d192061fed2
-sources:
   gnome-themes-standard-3.18.0.tar.xz: 1e04348f546f8a692f7376827a9980f415ba179f
+sources:
+  gnome-themes-standard-3.27.90.tar.xz: 9320ece90100406f4b8616ca7d9f426961750148
