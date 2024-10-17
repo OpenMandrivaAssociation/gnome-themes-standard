@@ -6,7 +6,7 @@ Release:	3
 Summary:	Standard themes for GNOME applications
 Group:		Graphical desktop/GNOME
 License:	LGPLv2+
-Url:		http://git.gnome.org/browse/gnome-themes-standard
+Url:		https://git.gnome.org/browse/gnome-themes-standard
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-themes-standard/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	settings.ini
 Source2:	gtkrc
